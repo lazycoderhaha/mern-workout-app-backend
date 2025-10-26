@@ -20,6 +20,20 @@ app.use((req, res, next) => {
     next();
 })
 
+
+// root route
+app.get("/", (req, res) => {
+    res.send(`
+    <h1>Welcome to the Workout Tracker API 💪</h1>
+    <p>Available routes:</p>
+    <ul>
+      <li><a href="/api/workouts">/api/workouts</a> - Manage workouts</li>
+      <li><a href="/api/user">/api/user</a> - User registration & login</li>
+    </ul>
+  `);
+});
+
+
 // routes
 app.use('/api/workouts', workoutRoutes);
 app.use('/api/user', userRoutes);
